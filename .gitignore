@@ -1,0 +1,5 @@
+# No pycache please
+/__pycache__
+
+# susfile
+makefile
