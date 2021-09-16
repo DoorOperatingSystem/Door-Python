@@ -1,5 +1,10 @@
 import window
 
+ERROR = [
+  (0, 0),
+  (5, 5)
+]
+
 MAIN_MENU_BUTTON = [
   (window.window_size[0] / 2 - 75, window.window_size[1] - 90),
   (window.window_size[0] / 2 + 40, window.window_size[1])
