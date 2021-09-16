@@ -21,24 +21,26 @@ while system.running:
       system.running = False
     # Mouse click event
     if event.type == pygame.MOUSEBUTTONDOWN:
-      button_thing.left_click(pygame.mouse.get_pos(), screen)
+      button_thing.left_click(pygame.mouse.get_pos())
+    if event.type == pygame.MOUSEMOTION:
+      button_thing.mouse_hover(pygame.mouse.get_pos())
     if event.type == pygame.KEYDOWN:
       pressed_keys = pygame.key.get_pressed()
       if pressed_keys[K_RSHIFT]:
-        if button_thing.open_dialogue == "main menu":
+        if system.current_menu == "main menu":
           pass
         else:
-          button_thing.open_dialogue = "main menu"
+          system.current_menu = "main menu"
 
-  background.render(screen)
+  background.render(screen, True)
 
   # Draw window features
   taskbar.render(screen)
 
-  if button_thing.open_dialogue == "main menu":
+  if system.main_menu_open:
     main_menu.render(screen)
 
-  # Flips the screen because for some reason it needs to to that to display stuff
+  # Flips the screen because for some reason it needs to do that to display stuff
   pygame.display.flip()
 
 pygame.quit()
